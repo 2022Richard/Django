@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Se connecter</title>
+    <meta name ="description" content="Une Application Web pour la gestion des absences au sein de l'ENSEA">
+
+    <!--Inclure le Bootstrap 5 ici-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel ="stylesheet" href="../static/css/style_index.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/14273d579a.js" crossorigin="anonymous"></script>
+    <!--Inclure le Bootstrap 5 ici-->
+
+    <!--Inclure le Jquery ici-->    
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+    </script> 
+    <!--Inclure le Jquery ici-->  
+
+    <!--Inclure le Jquery UI ici-->  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <!--Inclure le Jquery UI ici-->
+
+</head>
+
+<body>   
+        <header class="py-4">      
+            <nav nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand text-uppercase fw-bold" href="#index.html">
+                        <span class="bg-primary bg-gradient p-1 rounded-3 text-light">Gestion des Absences ENSEA </span> 
+                    </a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'absence:accueil' %}" title="Accueil">Accueil</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="" title="Cliquez ici pour vous créer votre compte">Créer un compte</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'absence:se-connecter' %}" title="Cliquez ici pour vous connecter">Se connecter</a>
+                        </li>
+                        <!--
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'absence:accueil' %}" title="Avoir d'autres Informations">Informations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'absence:accueil' %}" title="voir d'autres photos">galerie photos</a>
+                        </li>
+                        -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'absence:accueil' %}" title="Nous contacter">Contact</a>
+
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main> 
+            <section  class="my-5" id="connection">           
+                <div class="container">
+                    <div class="row gy-4 align-items-center">                        
+                        <h1 class="fw-bold text-md-center text-uppercase connection"><i class="fas fa-user"></i>Créer votre compte ici</h1>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="py-5 bg-light">
+                <div class="container">
+                    <h2 class="mb-0">Etes vous ?</h2>
+                    <p>  </p>
+                    <h3 class="fw-light fs-5">Les élèves, les professeurs et les membres du service sécrétariat sont uniqument autorisés à créer un compte</h3>
+     
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-danger text-center"><strong>{{message}}</strong></div>
+                        {% endfor %}
+                    {% endif %}
+                    <div class="row gy-4 mt-4">
+                        <form method="POST" action="" class="row">
+                                {% csrf_token %}
+                                <div class="col-6 my-2">
+                                    <label for="name" class="form-label" >Nom</label>
+                                    <input name="name" type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-6 my-2">
+                                    <label for="firstname" class="form-label" >Prénom</label>
+                                    <input name="firstname" type="text" class="form-control" id="firstname" required>
+                                </div>
+                                <div class="col-6 my-2">
+                                    <label for="name" class="form-label" >Login</label>
+                                    <input name="name" type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-6 my-2">
+                                    <label for="firstname" class="form-label" >Adresse email</label>
+                                    <input name="firstname" type="text" class="form-control" id="firstname" required>
+                                </div>
+
+                                <div class="col-6 my-2">
+                                    <label for="name" class="form-label" >Mot de Passe</label>
+                                    <input name="name" type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-6 my-2">
+                                    <label for="firstname" class="form-label" >Confirmation Mot de Passe</label>
+                                    <input name="firstname" type="text" class="form-control" id="firstname" required>
+                                </div>
+                                <div class="col-6 my-2 ">
+                                    <!--<label for="name" class="form-label" >Type de Profil</label>-->
+
+                                    <label for="browser" class="form-label">Cliquez ici pour sélectionner votre profil svp :</label>
+                                    <input class="form-control" list="browsers" name="browser" id="browser">
+                                    <datalist id="browsers">
+                                      <option value="Elève">
+                                      <option value="Professeur">
+                                      <option value="Service Sécrétariat">
+                                    </datalist>
+
+                                </div>
+                                <div class="col-6 my-2">
+                                    <label for="firstname" class="form-label" >Cliquez ici pour créer votre compte</label>
+                                    <button type="submit" class="btn btn-primary w-100">Créer votre compte</button>
+                                </div>
+                            </form>
+
+                            </div>
+                        </div>                          
+                    </div>                                        
+                </div>                                           
+            </section>
+        </main>
+
+        <footer class="border-top">
+            <div class="container py-5">
+                <div class="row gy-4 align-items-center">
+                    <div class="col-12 col-md-4">
+                        <a class="navbar-brand text-dark text-uppercase fw-bold" href="">
+                            <span class="bg-primary bg-gradient p-1 rounded-3 text-light">&copy;</span> Copyright    
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-center">
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="" class="text-decoration-none text-md-end">Delva & N'Dai</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-end">
+                        <H3>ENSEA-ITS-2022</H3>
+                    </div>
+                </div>
+            </div>
+
+            <!--Inclure le Bootstrap 5 ici-->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                    crossorigin="anonymous"></script>
+            <!--Inclure le Bootstrap 5 ici-->        
+        </footer>
+      
+</body>
+
+</html>

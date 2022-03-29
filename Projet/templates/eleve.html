@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleve</title>
+    <meta name ="description" content="Une Application Web pour la gestion des absences au sein de l'ENSEA">
+
+    <!--Inclure le Bootstrap 5 ici-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel ="stylesheet" href="../static/css/style_index.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/14273d579a.js" crossorigin="anonymous"></script>
+    <!--Inclure le Bootstrap 5 ici-->
+  
+    <!--Inclure le Jquery ici-->    
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+    </script> 
+    <!--Inclure le Jquery ici-->  
+
+    <!--Inclure le Jquery UI ici-->  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <!--Inclure le Jquery UI ici-->
+
+</head>
+
+<body>   
+        <header class="py-4">      
+            <nav nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand text-uppercase fw-bold" href="#index.html">
+                        <span class="bg-primary bg-gradient p-1 rounded-3 text-light">Gestion des Absences ENSEA </span> 
+                    </a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html" title="Accueil">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#connection" title="Cliquez ici pour vous connecter">Mon compte</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#connection" title="Cliquez ici pour vous connecter">Se deconnecter</a>
+                        </li>
+                     
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main> 
+            <section  class="my-5" id="connection">           
+                <div class="container">
+                    <div class="row gy-4 align-items-center">                        
+                        <!--<h1 class="fw-bold text-md-center text-uppercase connection">Bienvenue Monsieur / Madame {nom élève à afficher}</h1>-->
+                        <h1 class="fw-bold text-md-center text-uppercase connection">Bienvenue pour faire l'apel</h1>
+                    </div>
+                </div>
+            </section>
+
+            <section id="menu" class="py-5 bg-light">
+                <div class="container">
+                    <h2 class="mb-0">Voulez-vous commencer l'appel ?</h2>
+                    <p>  </p>
+                    <h3 class="fw-light fs-5">Veuillez cliquer sur le bouton ci-dessous SVP</h3>
+                    <p></p>
+                    <!--<button type="button" class="btn btn-primary">Cliquez ici</button>-->
+                    <button type="button" class="btn btn-info" id="clique_ici">Cliquez ici</button> 
+                    <p></p>
+                    <!--style = "display : block"-->
+                    <!--Mon bouton débuter l'appel-->
+                    <button type="button" class="btn btn-info" id = "debutappel" style="display: none;">Débuter l'appel</button>
+                     <!--Mon bouton débuter l'appel-->
+                   
+                    <div class="parfait" style="display: none ;">
+                        Veuillez <strong style="color: blue;">choisir</strong> votre classe et cliquez sur le bouton <strong style="color: blue;">envoyer </strong>SVP 
+
+                        <div class="container my-3">
+                            <div class="row">
+
+                                <div class="col-md-4">
+
+                                    <select class="form-select">
+                                        <option default>Selectionner votre classe ici</option>
+                                        <option>Analyste statisticien 1ere année</option>
+                                        <option>Adjoint technique de la statistique 2e année</option>
+                                        <option>Ingénieur statisticien économiste 2e année</option>
+                                        <option>Analyste statisticien 2e année</option>
+                                        <option>Ingénieur des Travaux Statistiques 2e année</option>
+                                      </select>
+
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button type="button" class="btn btn-info" id ="controlclasse">ENVOYER</button>
+                                </div>
+
+                            </div>                           
+                        </div>
+
+                    </div>
+                    <div class="affichelisteclasse " style="display: none ;">
+                        
+                        <table class="table">
+
+                            <p> </p>            
+                            <H3><center>Semaine du 21 au 26 Février 2022</center></H3><br>
+                
+                            <thead>
+                                <tr>
+                                    <td>Nom Elève</td>
+                
+                                    <td>Prénom Elève</td>
+                                   
+                                    <td colspan="5">Lundi </td>
+                                    
+                                </tr>
+                
+                            </thead>
+                
+                            <tbody>
+                                <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <div class="form-floating mb-3 mt-3">
+                                                <input type="text" class="form-control" id="heure_1e" name="heure_1e" value="08H - 10H" disabled>
+                                                <label for="heure_1e">Heure de cours</label>
+                                            </div>
+                                        </td>
+                                        <td >
+                                            <div class="form-floating mb-3 mt-3">
+                                                <input type="text" class="form-control" id="heure_2e" name="heure_2e" value="10H15 - 12H15" disabled>
+                                                <label for="heure_2e">Heure de cours</label>
+                                            </div>
+                                        </td>  
+                                        <td >
+                                            <div class="form-floating mb-3 mt-3">
+                                                <input type="text" class="form-control" id="heure_3e" name="heure_3e" value="13H30 - 15H30" disabled>
+                                                <label for="heure_3e">Heure de cours</label>
+                                            </div>
+                                        </td>
+                                        <td > 
+                                            <div class="form-floating mb-3 mt-3">
+                                                <input type="text" class="form-control" id="heure_4e" name="heure_4e" value="15H30 - 17H30" disabled>
+                                                <label for="heure_4e">Heure de cours</label>
+                                            </div>
+                                        </td>
+                                        <td >
+                                            <div class="form-floating mb-3 mt-3">
+                                                <input type="text" class="form-control" id="heure_5e" name="heure_5e" value="17H30 - 19H30" disabled>
+                                                <label for="heure_5e">Heure de cours</label>
+                                            </div>
+                                        </td>
+                                </tr>
+                
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td> 
+                                        <div class="form-floating">
+                                            <select class="form-select" id="nomCours_1e" name="nomCours_1e">
+                                              <option>Stat desc</option>
+                                              <option>Serie temp</option>
+                                              <option>Sport</option>
+                                              <option>Croissance</option>
+                                            </select>
+                                            <label for="nomCours_1e" class="form-label">Nom du cours</label>
+                                          </div>
+                                    </td>
+                                    <td >
+                                        <div class="form-floating">
+                                            <select class="form-select" id="nomCours_2e" name="nomCours_2e">
+                                              <option>Stat desc</option>
+                                              <option>Serie temp</option>
+                                              <option>Sport</option>
+                                              <option>Croissance</option>
+                                            </select>
+                                            <label for="nomCours_2e" class="form-label">Nom du cours</label>
+                                          </div>    
+                                    </td>  
+                                    <td>
+                                        <div class="form-floating">
+                                            <select class="form-select" id="nomCours_3e" name="nomCours_3e">
+                                              <option>Stat desc</option>
+                                              <option>Serie temp</option>
+                                              <option>Sport</option>
+                                              <option>Croissance</option>
+                                            </select>
+                                            <label for="nomCours_3e" class="form-label">Nom du cours</label>
+                                          </div>
+                                    
+                                    </td>
+                                    <td >
+                                        <div class="form-floating">
+                                            <select class="form-select" id="nomCours_4e" name="nomCours_4e">
+                                              <option>Stat desc</option>
+                                              <option>Serie temp</option>
+                                              <option>Sport</option>
+                                              <option>Croissance</option>
+                                            </select>
+                                            <label for="nomCours_4e" class="form-label">Nom du cours</label>
+                                          </div>
+                                    </td>
+                                    <td >
+                                        <div class="form-floating">
+                                            <select class="form-select" id="nomCours_5e" name="nomCours_5e">
+                                              <option>Stat desc</option>
+                                              <option>Serie temp</option>
+                                              <option>Sport</option>
+                                              <option>Croissance</option>
+                                            </select>
+                                            <label for="nomCours_5e" class="form-label">Nom du cours</label>
+                                          </div>     
+                                    </td>
+                                </tr>
+                
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="form-floating">
+                                            <select class="form-select" id="nomProf_1e" name="nomProf_1e">
+                                              <option>Soro</option>
+                                              <option>Sonagnion</option>
+                                              <option>Aka</option>
+                                              <option>Kouame</option>
+                                            </select>
+                                            <label for="nomProf_1e" class="form-label">Nom du prof</label>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="form-floating">
+                                            <select class="form-select" id="nomProf_2e" name="nomProf_2e">
+                                              <option>Soro</option>
+                                              <option>Sonagnion</option>
+                                              <option>Aka</option>
+                                              <option>Kouame</option>
+                                            </select>
+                                            <label for="nomProf_2e" class="form-label">Nom du prof</label>
+                                        </div>
+                                    </td>  
+                                    <td >
+                                        <div class="form-floating">
+                                            <select class="form-select" id="nomProf_3e" name="nomProf_3e">
+                                              <option>Soro</option>
+                                              <option>Sonagnion</option>
+                                              <option>Aka</option>
+                                              <option>Kouame</option>
+                                            </select>
+                                            <label for="nomProf_3e" class="form-label">Nom du prof</label>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="form-floating">
+                                            <select class="form-select" id="nomProf_4e" name="nomProf_4e">
+                                              <option>Soro</option>
+                                              <option>Sonagnion</option>
+                                              <option>Aka</option>
+                                              <option>Kouame</option>
+                                            </select>
+                                            <label for="nomProf_4e" class="form-label">Nom du prof</label>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="form-floating">
+                                            <select class="form-select" id="nomProf_5e" name="nomProf_5e">
+                                              <option>Soro</option>
+                                              <option>Sonagnion</option>
+                                              <option>Aka</option>
+                                              <option>Kouame</option>
+                                            </select>
+                                            <label for="nomProf_5e" class="form-label">Nom du prof</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                
+                                <tr>
+                                    <td>NGUALA FAPONG</td>
+                                    <td>DELVA</td>
+                                    <td> 
+                                        <!--
+                                        <div class="radio">
+                                            <label><input type="radio" name="premiereHeure" checked >Présent</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="premiereHeure">Absent</label>
+                                        </div> -->      
+                                        
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="mySwitch" name="premiereHeure" value="no" >
+                                            <label class="form-check-label" for="mySwitch">Présent ?</label>
+                                        </div>
+                                    </td>                   
+                                    <td >
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="mySwitch" name="deuxièmeHeure" value="yes" checked>
+                                            <label class="form-check-label" for="mySwitch">Présent ?</label>
+                                        </div>
+                                    </td>  
+                                    <td > 
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="mySwitch" name="troisiemeHeure" value="yes" checked>
+                                            <label class="form-check-label" for="mySwitch">Présent ?</label>
+                                        </div>
+                                         
+                                    </td>
+                                    <td > 
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="mySwitch" name="quatriemeHeure" value="yes" checked>
+                                            <label class="form-check-label" for="mySwitch">Présent ?</label>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="mySwitch" name="cinquiemeHeure" value="yes" checked>
+                                            <label class="form-check-label" for="mySwitch">Présent ?</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                
+                                <tr>
+                                    <td>KOUASSI</td>
+                                    <td>N'DAI RICHARD AXEL</td>
+                                    <td>   
+                                        
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="mySwitch" name="premiereHeure" value="yes" checked>
+                                            <label class="form-check-label" for="mySwitch">Présent ?</label>
+                                        </div>
+                                    </td>                   
+                                    <td >
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="mySwitch" name="deuxièmeHeure" value="yes" checked>
+                                            <label class="form-check-label" for="mySwitch">Présent ?</label>
+                                        </div>
+                                    </td>  
+                                    <td > 
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="mySwitch" name="troisiemeHeure" value="yes" checked>
+                                            <label class="form-check-label" for="mySwitch">Présent ?</label>
+                                        </div>
+                                         
+                                    </td>
+                                    <td > 
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="mySwitch" name="quatriemeHeure" value="yes" checked>
+                                            <label class="form-check-label" for="mySwitch">Présent ?</label>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="mySwitch" name="cinquiemeHeure" value="yes" checked>
+                                            <label class="form-check-label" for="mySwitch">Présent ?</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                          
+                            </tbody>
+                
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td>Classe : ITS 2</td>
+                                    <td></td>
+                                    <td colspan="2"><button type="button" class="btn btn-primary">enregistrer</button> </td>
+                                </tr>
+                
+                            </tfoot>
+                
+                        </table>
+                
+                    </div>
+
+                    <p hidden>
+                        Lorsqu'on clique sur le bouton ci-dessus, on doit afficher la liste des classes présentes à l'Ensea se trouvant dans notre base (back end: python + mysql). <br>
+                        Ensuite, l'utilisateur doit selectionner sa classe puis cliquez sur un bouton valider ou envoyer. <br> On vérifie si l'élève est dans la classe 
+                        qu'il vient de mentionner (un control avec python + mysql).<br> <br>
+
+                        <strong>Control du bouton cliquez-ici :</strong> si l'élève n'est pas de la classe, on affiche un message javascript en mentionnant : vous n'êtes pas inscrit dans cette classe. Veuillez en choisir une autre SVP.<br> 
+                        <strong>Control du bouton cliquez-ici :</strong> si l'élève est de la classe, on affiche un bouton <strong>"Débuter l'appel"</strong> et on fait disparaitre le formulaire ci-dessus présentant la liste de classe et le bouton cliquez-ici ci-dessus. <br>
+
+                        <strong>Control du bouton Débuter l'appel :</strong> si l'élève n'est pas le délégué de la classe, on affiche un message : vous ne pouvez pas effectuer l'appel car vous n'êtes pas le délégué de cette classe. 
+                        Mais il peut consulter la liste d'appel de sa classe <strong>de la semaine en cours</strong> sans la modifier (on ne lui donne pas le droit de modifier) . <br>
+                       
+                        <strong>Control du bouton Débuter l'appel :</strong> si l'élève est le délégué de la classe, on affiche un formulaire mentionnant la liste des élèves de sa classe pour faire l'appel. 
+                        Il débute l'appel et clique sur le bouton <strong> enregistrer l'appel </strong>lorsqu'il finit. <br> <br>
+
+                        <strong>Control du bouton enregistrer l'appel :</strong> lorsque le délégué clique sur ce bouton , on vérifie si le professeur est celui qui enseigne ce cours dans la classe (faire ce control avec js serveur).
+                        Si ce control est correct, alors on vérifie si le délégué a coché devant les noms de tous les élèves de sa classe <strong>Présent</strong> ou <strong>Absent</strong>.<br>
+                        Si tous ces controls sont corrects, on enregistre tous les éléments dans la base et on affiche la liste d'appel avec une possibilité pour modifier l'appel du jour_et_heure.<br> 
+                        On affiche aussi un bouton <strong> la liste d'appel de la semaine de la classe . Il ne peut pas modifier cette liste sauf la liste d'appel du jour_et_heure </strong>. <br>     
+                        
+                        <strong>Control du bouton appel de la semaine de la classe :</strong> on affiche la liste d'appel de la classe (avec les boutons précédent / suivant pour le défilement) et on masque la liste d'appel que le délégué vient d'effectuer. <br> <br>
+                        
+                        Le bouton Se deconnecter permet d'arrêter la session de l'utilisateur en cours (élève ou Professeur ou service sécrétariat) et on le redirige vers la page d'accueil (index.html). <br>
+
+                        Le bouton Mon compte permet d'afficher son compte (compte : élève ou Professeur ou service sécrétariat) si l'utilisateur est connecté. Sinon, on le dirige vers la page connection.
+                   
+                    </p>
+
+
+                                                    
+                </div>                                           
+            </section>
+        </main>
+
+        <footer class="border-top">
+            <div class="container py-5">
+                <div class="row gy-4 align-items-center">
+                    <div class="col-12 col-md-4">
+                        <a class="navbar-brand text-dark text-uppercase fw-bold" href="">
+                            <span class="bg-primary bg-gradient p-1 rounded-3 text-light">&copy;</span> Copyright    
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-center">
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="" class="text-decoration-none text-md-end">Delva & N'Dai</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-end">
+                        <H3>ENSEA-ITS-2022</H3>
+                    </div>
+                </div>
+            </div>
+
+            <!--Inclure le Bootstrap 5 ici-->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                    crossorigin="anonymous"></script>
+            <!--Inclure le Bootstrap 5 ici-->        
+
+                   
+        </footer>
+      
+</body>
+<script src="./js/script_eleve.js"></script> 
+</html>
